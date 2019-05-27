@@ -1,7 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="js.js"></script>
+    <script src="functions.js"></script>
+    <script src="import_deck.js"></script>
+
+   <link rel="stylesheet" type="text/css" href="css.css">
+
+
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<div class="container">
+
+    <br>
+    Paste Decklist here:
+
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <br>
+
+</div>
+
+    <button id="btnImport" class="btn btn-primary">Import</button>
+
+    <br>
+    <br>
+    <br>
+
+    <button id="btnGo"  class="btn btn-success" disabled>Simulate starting hand</button>
+    <button id="btnReset" class="btn btn-danger" disabled>Reset</button>
+    <br><br>
+
+<div class="container">
+    Hand:
+    <div class="well well-lg" id="show_hand"> </div>
+    Deck:
+    <div class="well well-lg" id="show_deck"></div>
+    Prizes:
+    <div class="well well-lg" id="show_prizes"></div>
+
+</div>
+    <br><br>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-3">
+
+        </div>
+
+        <div class="col-lg-2">
+            Odds of mulligan:
+            <div class="well well-lg" id="show_mulligan">
+
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            Odds of draw supporter:
+            <div class="well well-lg" id="show_drawsupporter">
+
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            Odds of search item:
+            <div class="well well-lg" id="show_searchitem">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-lg-4">
+            Pokemon:
+            <div class="well well-lg" id="show_pokemon">
+
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            Trainers:
+            <div class="well well-lg" id="show_trainers">
+
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            Energy:
+            <div class="well well-lg" id="show_energy">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+<br><br><br><br><br><br><br><br>
+
+<!--<button id="btnDrawOne">Draw One</button>-->
+
+
 </body>
 </html>
