@@ -303,4 +303,3 @@ function hard_coded_deck() {
     ];
 }
 
-
