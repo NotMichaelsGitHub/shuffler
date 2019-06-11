@@ -134,21 +134,28 @@ function findunique(card) {
 
 //reset
 function reset() {
-    impdeck();
+    deck = [];
     hand = [];
     prizes = [];
+
     mulligan = 0;
     drawsupporter = 0;
     searchitem = 0;
+
     pokemonstats = "";
     energystats = "";
     itemstats = "";
     supporterstats = "";
     stadiumstats = "";
+
+    deck_object =[];
+
+
 }
 
 //handles all the html
 function display() {
+
     // document.getElementById("show_hand").innerText = hand;
     // document.getElementById("show_deck").innerHTML = deck;
     //document.getElementById("show_prizes").innerText = prizes;
