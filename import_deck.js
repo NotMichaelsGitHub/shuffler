@@ -6,8 +6,12 @@
 //     ];
 // }
 
+function get_user_paste() {
+    search_db();
+}
 
-function impdeck() {
+
+function hard_coded_deck() {
 
     deck = [
         {
@@ -298,4 +302,5 @@ function impdeck() {
 
     ];
 }
+
 
