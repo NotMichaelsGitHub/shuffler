@@ -68,7 +68,7 @@ function search(set, num) {
 
     var id = set + "-" + num;
 
-    var requestURL = 'http://localhost:63342/deck_sim/en_US/' + set + '.json';
+    var requestURL = 'https://notmichaelsgithub.github.io/shuffler/en_US/' + set + '.json';
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
