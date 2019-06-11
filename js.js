@@ -60,7 +60,7 @@ $(document).ready(function() {
 
     $("#btnImport").click(function () {
 
-        //get_user_paste();
+        get_user_paste();
 
         hard_coded_deck();
         display();
