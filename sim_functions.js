@@ -21,7 +21,7 @@ function mulliganOdds() {
 
     var basic = 0;
     deck.forEach(function(entry) {
-        if(entry.stage == "basic"){
+        if(entry.subtype == "Basic"){
             basic = basic + 1;
         }
     });
@@ -38,7 +38,7 @@ function drawsupporterOdds() {
 
     var supporter = 0;
     deck.forEach(function(entry) {
-        if(entry.type == "supporter" && entry.action == "draw"){
+        if(entry.subtype == "Supporter"){
             supporter = supporter + 1;
         }
     });
@@ -53,7 +53,7 @@ function drawsupporterOdds() {
 function searchitemOdds() {
     var item = 0;
     deck.forEach(function(entry) {
-        if(entry.type == "item" && entry.action == "pokemon search"){
+        if(entry.subtype == "Item"){
             item = item + 1;
         }
     });
@@ -66,7 +66,7 @@ function searchitemOdds() {
 }
 
 function pokemonOdds() {
-    var uniquepokes = findunique("pokemon");
+    var uniquepokes = findunique("Pokémon");
 
     uniquepokes.forEach(function (entry) {
         pokemonstats = pokemonstats + entry +  " - " + pokemonMath(entry) + "%" + "<br />";
@@ -74,7 +74,7 @@ function pokemonOdds() {
 }
 
 function energyOdds() {
-    var uniqueenergy = findunique("energy");
+    var uniqueenergy = findunique("Energy");
 
     uniqueenergy.forEach(function (entry) {
         energystats = energystats + entry +  " - " + pokemonMath(entry) + "%" + "<br />";
@@ -82,7 +82,7 @@ function energyOdds() {
 }
 
 function itemOdds() {
-    var uniqueitems = findunique("item");
+    var uniqueitems = finduniqueSubtype("Item");
 
     uniqueitems.forEach(function (entry) {
         itemstats = itemstats + entry +  " - " + pokemonMath(entry) + "%" + "<br />";
@@ -90,7 +90,7 @@ function itemOdds() {
 }
 
 function supporterOdds() {
-    var uniquesupporters = findunique("supporter");
+    var uniquesupporters = finduniqueSubtype("Supporter");
 
     uniquesupporters.forEach(function (entry) {
         supporterstats = supporterstats + entry +  " - " + pokemonMath(entry) + "%" + "<br />";
@@ -98,7 +98,7 @@ function supporterOdds() {
 }
 
 function stadiumOdds() {
-    var uniquestadium = findunique("stadium");
+    var uniquestadium = finduniqueSubtype("Stadium");
 
     uniquestadium.forEach(function (entry) {
         stadiumstats = stadiumstats + entry +  " - " + pokemonMath(entry) + "%" + "<br />";
@@ -123,8 +123,22 @@ function pokemonMath(p) {
 //gets the unique items from an array
 function findunique(card) {
     var n = [];
+
     deck.forEach(function(entry) {
-        if(entry.type == card){
+        if(entry.supertype == card){
+            n.push(entry.name);
+        }
+    });
+
+    return Array.from(new Set(n));
+}
+
+//gets the unique items from an array
+function finduniqueSubtype(card) {
+    var n = [];
+
+    deck.forEach(function(entry) {
+        if(entry.subtype == card){
             n.push(entry.name);
         }
     });
@@ -156,9 +170,9 @@ function reset() {
 //handles all the html
 function display() {
 
-    // document.getElementById("show_hand").innerText = hand;
-    // document.getElementById("show_deck").innerHTML = deck;
-    //document.getElementById("show_prizes").innerText = prizes;
+    document.getElementById("show_hand").innerText = hand;
+    document.getElementById("show_deck").innerHTML = deck;
+    document.getElementById("show_prizes").innerText = prizes;
     document.getElementById("show_mulligan").innerText = mulligan + "%";
     document.getElementById("show_drawsupporter").innerText = drawsupporter + "%";
     document.getElementById("show_searchitem").innerText = searchitem + "%";
