@@ -7,6 +7,34 @@
 // }
 
 function get_user_paste() {
+
+    user_paste = document.getElementById("pastehere").value;
+
+    //alert(user_paste);
+
+    var unicards = user_paste.match(/[A-Z]{3} +\d{1,3}/g);
+    //console.log(unicards);
+
+    var numocards = user_paste.match(/\d /g);
+    //alert(numocards);
+
+    var temp = [];
+    var x = 0;
+
+    unicards.forEach(function(element) {
+
+        for (i = 0; i < parseInt(numocards[x].substring(0,1)); i++) {
+            temp.push(element)
+        }
+
+        x=x+1;
+
+
+    });
+
+    //console.log(temp);
+    import_array = temp;
+    alert("Your decklist had been imported");
     search_db();
 }
 
