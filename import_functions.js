@@ -18,18 +18,6 @@ function search_db() {
 
     });
 
-    // console.log(deck_object);
-    // console.log(deck_object.length);
-
-
-    // var temp2 = "";
-    // deck_object.forEach(function(entry) {
-    //     temp2 = temp2 + (entry.name) + ", ";
-    // });
-    // document.getElementById("show_deck").innerHTML = temp2.substring(0, temp2.length - 2);
-
-
-
 }
 
 
@@ -78,16 +66,30 @@ function search(set, num) {
 
     var id = set + "-" + num;
 
-    //var requestURL = 'http://localhost:63342/deck_sim/en_US/' + set + '.json';
-    var requestURL = 'https://notmichaelsgithub.github.io/shuffler/en_US/' + set + '.json';
-    
+    var requestURL = 'http://localhost:63342/deck_sim/en_US/' + set + '.json';
+    //var requestURL = 'https://notmichaelsgithub.github.io/shuffler/en_US/' + set + '.json';
+
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
     request.send();
 
 
-    request.onload = function() {
+    // request.onload = function() {
+    //     var setList = request.response;
+    //     //console.log(setList);
+    //
+    //     for (var x = 0; x < setList.length; x++) {
+    //
+    //         if (setList[x].id == id){
+    //             deck.push(setList[x])
+    //         }
+    //
+    //     }
+    //
+    // }
+
+    request.onload = async () => {
         var setList = request.response;
         //console.log(setList);
 
@@ -101,19 +103,7 @@ function search(set, num) {
 
     }
 
-    // request.onload = async () => {
-    //     var setList = request.response;
-    //     //console.log(setList);
-    //
-    //     for (var x = 0; x < setList.length; x++) {
-    //
-    //         if (setList[x].id == id){
-    //             deck_object.push(setList[x])
-    //         }
-    //
-    //     }
-    //
-    // }
-
 
 }
+
+
