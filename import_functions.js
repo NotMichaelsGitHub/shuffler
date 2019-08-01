@@ -75,33 +75,33 @@ function search(set, num) {
     request.send();
 
 
-    // request.onload = function() {
-    //     var setList = request.response;
-    //     //console.log(setList);
-    //
-    //     for (var x = 0; x < setList.length; x++) {
-    //
-    //         if (setList[x].id == id){
-    //             deck.push(setList[x])
-    //         }
-    //
-    //     }
-    //
-    // }
-
-    request.onload = async () => {
+    request.onload = function() {
         var setList = request.response;
         //console.log(setList);
-
+    
         for (var x = 0; x < setList.length; x++) {
-
+    
             if (setList[x].id == id){
                 deck.push(setList[x])
             }
-
+    
         }
-
+    
     }
+
+//     request.onload = async () => {
+//         var setList = request.response;
+//         //console.log(setList);
+
+//         for (var x = 0; x < setList.length; x++) {
+
+//             if (setList[x].id == id){
+//                 deck.push(setList[x])
+//             }
+
+//         }
+
+//     }
 
 
 }
